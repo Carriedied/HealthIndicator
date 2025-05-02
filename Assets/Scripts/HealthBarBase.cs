@@ -6,12 +6,12 @@ public abstract class HealthBarBase : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        _health.HealthChanged += UpdateUI;
+        _health.HitPointsChanged += UpdateUI;
     }
 
     protected virtual void OnDisable()
     {
-        _health.HealthChanged -= UpdateUI;
+        _health.HitPointsChanged -= UpdateUI;
     }
 
     protected abstract void UpdateUI();

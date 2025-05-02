@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public event Action HealthChanged;
+    public event Action HitPointsChanged;
 
     public float CurrentHitPoints { get; private set; }
     public float MaxHitPoints { get; private set; }
@@ -18,13 +18,13 @@ public class Health : MonoBehaviour
     {
         CurrentHitPoints += countMedicines;
 
-        HealthChanged?.Invoke();
+        HitPointsChanged?.Invoke();
     }
 
     public void TakeDamage(float damage)
     {
         CurrentHitPoints -= damage;
 
-        HealthChanged?.Invoke();
+        HitPointsChanged?.Invoke();
     }
 }
