@@ -1,22 +1,12 @@
 using TMPro;
 using UnityEngine;
 
-public class TextHealthBar : MonoBehaviour
+public class TextHealthBar : HealthBarBase
 {
-    [SerializeField] private Health _health;
     [SerializeField] private TMP_Text _healthText;
 
-    private void Start()
+    protected override void UpdateUI()
     {
-        _health.ExecuteHealth += ChangeHealth;
-    }
-
-    private void ChangeHealth()
-    {
-        _health.ExecuteHealth -= ChangeHealth;
-
-        _healthText.text = $"{_health.HitPoints}/{_health.MaxHealth}";
-
-        _health.ExecuteHealth += ChangeHealth;
+        _healthText.text = $"{_health.CurrentHitPoints}/{_health.MaxHitPoints}";
     }
 }

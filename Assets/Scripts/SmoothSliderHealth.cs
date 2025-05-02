@@ -2,24 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmoothSliderHealth : MonoBehaviour
+public class SmoothSliderHealth : HealthBarBase
 {
-    [SerializeField] private Health _health;
     [SerializeField] private Slider _smoothSlider;
     [SerializeField] private float _duration;
 
-    private void Start()
+    protected override void UpdateUI()
     {
-        _health.ExecuteHealth += ChangeHealth;
-    }
-
-    private void ChangeHealth()
-    {
-        _health.ExecuteHealth -= ChangeHealth;
-
-        StartCoroutine(ChangeSliderValue(_smoothSlider.value, _health.HitPoints));
-
-        _health.ExecuteHealth += ChangeHealth;
+        StartCoroutine(ChangeSliderValue(_smoothSlider.value, _health.CurrentHitPoints));
     }
 
     private IEnumerator ChangeSliderValue(float startValue, float targetValue)

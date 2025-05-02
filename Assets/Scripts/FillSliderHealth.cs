@@ -2,22 +2,34 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FillSliderHealth : MonoBehaviour
+public class FillSliderHealth : HealthBarBase
 {
-    [SerializeField] private Health _health;
+    //[SerializeField] private Health _health;
+    //[SerializeField] private Slider _fillSlider;
+
+    //private void OnEnable()
+    //{
+    //    _health.HealthChanged += ChangeHealth;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    _health.HealthChanged -= ChangeHealth;
+    //}
+
+    //private void ChangeHealth()
+    //{
+    //    _health.HealthChanged -= ChangeHealth;
+
+    //    _fillSlider.value = _health.CurrentHitPoints;
+
+    //    _health.HealthChanged += ChangeHealth;
+    //}
+
     [SerializeField] private Slider _fillSlider;
 
-    private void Start()
+    protected override void UpdateUI()
     {
-        _health.ExecuteHealth += ChangeHealth;
-    }
-
-    private void ChangeHealth()
-    {
-        _health.ExecuteHealth -= ChangeHealth;
-
-        _fillSlider.value = _health.HitPoints;
-
-        _health.ExecuteHealth += ChangeHealth;
+        _fillSlider.value = _health.CurrentHitPoints;
     }
 }

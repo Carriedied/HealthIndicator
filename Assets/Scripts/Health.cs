@@ -3,28 +3,28 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float HitPoints { get; private set; }
-    public float MaxHealth { get; private set; }
+    public event Action HealthChanged;
 
-    public event Action ExecuteHealth;
+    public float CurrentHitPoints { get; private set; }
+    public float MaxHitPoints { get; private set; }
 
     private void Awake()
     {
-        MaxHealth = 100;
-        HitPoints = MaxHealth;
+        MaxHitPoints = 100;
+        CurrentHitPoints = MaxHitPoints;
     }
 
     public void RestoreHealth(float countMedicines)
     {
-        HitPoints += countMedicines;
+        CurrentHitPoints += countMedicines;
 
-        ExecuteHealth?.Invoke();
+        HealthChanged?.Invoke();
     }
 
     public void TakeDamage(float damage)
     {
-        HitPoints -= damage;
+        CurrentHitPoints -= damage;
 
-        ExecuteHealth?.Invoke();
+        HealthChanged?.Invoke();
     }
 }
