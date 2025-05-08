@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,6 @@ public class FillSliderHealth : HealthBarBase
 
     protected override void UpdateUI()
     {
-        _fillSlider.value = _health.CurrentHitPoints;
+        _fillSlider.value = (_health.CurrentHitPoints / (float)_health.MaxHitPoints) * _fillSlider.maxValue;
     }
 }

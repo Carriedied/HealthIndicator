@@ -279,9 +279,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 126064649}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -298,6 +298,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1671740613}
+  _changeHealthButtons:
+  - {fileID: 722330999}
+  - {fileID: 494968510}
   _fillSlider: {fileID: 63196732}
 --- !u!1 &126064648
 GameObject:
@@ -639,6 +642,7 @@ GameObject:
   - component: {fileID: 494968509}
   - component: {fileID: 494968508}
   - component: {fileID: 494968507}
+  - component: {fileID: 494968510}
   m_Layer: 5
   m_Name: DamageButton
   m_TagString: Untagged
@@ -709,19 +713,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 494968508}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1671740613}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 15
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &494968508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,6 +752,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494968505}
   m_CullTransparentMesh: 1
+--- !u!114 &494968510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494968505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7013ad9106a32ff46ade25f43246d525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1671740613}
+  _damageAmount: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,6 +1264,7 @@ GameObject:
   - component: {fileID: 722330998}
   - component: {fileID: 722330997}
   - component: {fileID: 722330996}
+  - component: {fileID: 722330999}
   m_Layer: 5
   m_Name: HealthButton
   m_TagString: Untagged
@@ -1328,19 +1335,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 722330997}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1671740613}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: RestoreHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &722330997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,6 +1374,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722330994}
   m_CullTransparentMesh: 1
+--- !u!114 &722330999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722330994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61552f00de1a78845b873ba88b78791c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1671740613}
+  _healingAmount: 10
 --- !u!1 &997189863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1613,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1671740613}
+  _changeHealthButtons:
+  - {fileID: 722330999}
+  - {fileID: 494968510}
   _healthText: {fileID: 1202234999}
 --- !u!1 &1331601047
 GameObject:
@@ -1962,9 +1974,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 638652857}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1981,6 +1993,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 1671740613}
+  _changeHealthButtons:
+  - {fileID: 722330999}
+  - {fileID: 494968510}
   _smoothSlider: {fileID: 1596952614}
   _duration: 2
 --- !u!1 &1651721853

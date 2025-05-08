@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public event Action HitPointsChanged;
-
     public float CurrentHitPoints { get; private set; }
     public float MaxHitPoints { get; private set; }
 
@@ -16,15 +14,16 @@ public class Health : MonoBehaviour
 
     public void RestoreHealth(float countMedicines)
     {
-        CurrentHitPoints += countMedicines;
-
-        HitPointsChanged?.Invoke();
+        CurrentHitPoints += MakeNumberPositive(countMedicines);
     }
 
     public void TakeDamage(float damage)
     {
-        CurrentHitPoints -= damage;
+        CurrentHitPoints -= MakeNumberPositive(damage);
+    }
 
-        HitPointsChanged?.Invoke();
+    private float MakeNumberPositive(float number)
+    {
+        return Mathf.Abs(number);
     }
 }

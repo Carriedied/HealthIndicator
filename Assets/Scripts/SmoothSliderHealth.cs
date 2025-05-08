@@ -7,9 +7,13 @@ public class SmoothSliderHealth : HealthBarBase
     [SerializeField] private Slider _smoothSlider;
     [SerializeField] private float _duration;
 
+    private float _targetValue;
+    
     protected override void UpdateUI()
     {
-        StartCoroutine(ChangeSliderValue(_smoothSlider.value, _health.CurrentHitPoints));
+        _targetValue = (_health.CurrentHitPoints / (float)_health.MaxHitPoints) * _smoothSlider.maxValue;
+
+        StartCoroutine(ChangeSliderValue(_smoothSlider.value, _targetValue));
     }
 
     private IEnumerator ChangeSliderValue(float startValue, float targetValue)

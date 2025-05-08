@@ -1,17 +1,26 @@
+using Assets.Scripts;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class HealthBarBase : MonoBehaviour
 {
     [SerializeField] protected Health _health;
+    [SerializeField] private List<ExecuteButtonBase> _changeHealthButtons;
 
     protected virtual void OnEnable()
     {
-        _health.HitPointsChanged += UpdateUI;
+        foreach (var button in _changeHealthButtons)
+        {
+            button.HitPointsChanged += UpdateUI;
+        }
     }
 
     protected virtual void OnDisable()
     {
-        _health.HitPointsChanged -= UpdateUI;
+        foreach (var button in _changeHealthButtons)
+        {
+            button.HitPointsChanged -= UpdateUI;
+        }
     }
 
     protected abstract void UpdateUI();
