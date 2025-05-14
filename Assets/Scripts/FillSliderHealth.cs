@@ -7,6 +7,6 @@ public class FillSliderHealth : HealthBarBase
 
     protected override void UpdateUI()
     {
-        _fillSlider.value = (_health.CurrentHitPoints / (float)_health.MaxHitPoints) * _fillSlider.maxValue;
+        _fillSlider.value = (HitPoints.CurrentHitPoints / (float)HitPoints.MaxHitPoints) * _fillSlider.maxValue;
     }
 }

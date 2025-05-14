@@ -8,9 +8,7 @@ namespace Assets.Scripts
 
         protected override void OnButtonClick()
         {
-            _health.RestoreHealth(_healingAmount);
-
-            Execute();
+            HealthModifier.RestoreHealth(_healingAmount);
         }
     }
 }

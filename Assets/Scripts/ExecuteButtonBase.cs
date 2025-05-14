@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
@@ -7,11 +6,11 @@ namespace Assets.Scripts
     [RequireComponent(typeof(Button))]
     public abstract class ExecuteButtonBase : MonoBehaviour
     {
-        [SerializeField] protected Health _health;
+        [SerializeField] private ChangeHealth _changeHealth;
+
+        protected ChangeHealth HealthModifier => _changeHealth;
 
         private Button _changeButton;
-
-        public event Action HitPointsChanged;
 
         private void Awake()
         {
@@ -28,16 +27,6 @@ namespace Assets.Scripts
             _changeButton.onClick.RemoveListener(OnButtonClick);
         }
 
-        public void Execute()
-        {
-            EventSubscription();
-        }
-
         protected abstract void OnButtonClick();
-
-        private void EventSubscription()
-        {
-            HitPointsChanged?.Invoke();
-        }
     }
 }

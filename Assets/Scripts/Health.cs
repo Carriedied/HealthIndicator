@@ -6,6 +6,8 @@ public class Health : MonoBehaviour
     public float CurrentHitPoints { get; private set; }
     public float MaxHitPoints { get; private set; }
 
+    public event Action OnHealthChanged;
+
     private void Awake()
     {
         MaxHitPoints = 100;
@@ -14,16 +16,21 @@ public class Health : MonoBehaviour
 
     public void RestoreHealth(float countMedicines)
     {
-        CurrentHitPoints += MakeNumberPositive(countMedicines);
+        if (countMedicines > 0)
+        {
+            CurrentHitPoints += countMedicines;
+
+            OnHealthChanged?.Invoke();
+        }
     }
 
     public void TakeDamage(float damage)
     {
-        CurrentHitPoints -= MakeNumberPositive(damage);
-    }
+        if (damage > 0)
+        {
+            CurrentHitPoints -= damage;
 
-    private float MakeNumberPositive(float number)
-    {
-        return Mathf.Abs(number);
+            OnHealthChanged?.Invoke();
+        }
     }
 }

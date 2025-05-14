@@ -7,6 +7,6 @@ public class TextHealthBar : HealthBarBase
 
     protected override void UpdateUI()
     {
-        _healthText.text = $"{_health.CurrentHitPoints}/{_health.MaxHitPoints}";
+        _healthText.text = $"{HitPoints.CurrentHitPoints}/{HitPoints.MaxHitPoints}";
     }
 }

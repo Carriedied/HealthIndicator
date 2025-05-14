@@ -11,7 +11,7 @@ public class SmoothSliderHealth : HealthBarBase
     
     protected override void UpdateUI()
     {
-        _targetValue = (_health.CurrentHitPoints / (float)_health.MaxHitPoints) * _smoothSlider.maxValue;
+        _targetValue = (HitPoints.CurrentHitPoints / (float)HitPoints.MaxHitPoints) * _smoothSlider.maxValue;
 
         StartCoroutine(ChangeSliderValue(_smoothSlider.value, _targetValue));
     }

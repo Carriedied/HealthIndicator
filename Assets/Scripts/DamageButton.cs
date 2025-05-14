@@ -8,9 +8,7 @@ namespace Assets.Scripts
 
         protected override void OnButtonClick()
         {
-            _health.TakeDamage(_damageAmount);
-
-            Execute();
+            HealthModifier.TakeDamage(_damageAmount);
         }
     }
 }
